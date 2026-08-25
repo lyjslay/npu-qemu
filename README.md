@@ -21,6 +21,7 @@ ROS 节点 → ioctl(NPU_IOCTL_INFER) → /dev/npu → npu_drv.ko 驱动
 | `driver/` | NPU 内核驱动 `npu_drv.c`、共享头 `npu.h`、模型参数 `sensor_model.h`、测试 `npu_test.c` |
 | `bare-metal/` | 裸机冒烟测试源码（`crt0.S` + `test_npu.c`） |
 | `ros/` | ROS 2 包 `npu_ros`（自定义消息 + rclcpp 推理节点） |
+| `scripts/` | vmnet 启动脚本 `run-vmnet.sh`（sudo 运行）+ 组合 entitlement `entitlements.plist` |
 | `实现说明书.md` | 完整实现文档 |
 
 ## 快速开始
