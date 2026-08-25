@@ -17,6 +17,17 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 add_executable(npu_subscriber src/npu_subscriber.cpp)
 ament_target_dependencies(npu_subscriber rclcpp)
 rosidl_target_interfaces(npu_subscriber ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
+# macOS 修复：rclcpp 传递依赖 libpython（_PyExc_* 等符号）需显式链接；
+# 并设置 rpath 指向 conda env 的 lib，避免 librclcpp 找不到
+if(APPLE)
+  find_package(Python3 REQUIRED COMPONENTS Development)
+  target_link_libraries(npu_subscriber Python3::Python)
+  set_target_properties(npu_subscriber PROPERTIES
+    BUILD_RPATH "$ENV{CONDA_PREFIX}/lib"
+    INSTALL_RPATH "$ENV{CONDA_PREFIX}/lib")
+endif()
+
 install(TARGETS npu_subscriber
   DESTINATION lib/${PROJECT_NAME})
 
