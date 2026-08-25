@@ -39,4 +39,4 @@ ROS 节点 → ioctl(NPU_IOCTL_INFER) → /dev/npu → npu_drv.ko 驱动
 - QEMU 11.0.0 源码（本仓库只含自定义设备文件）
 - Ubuntu 24.04 arm64 云镜像 `noble-server-cloudimg-arm64.img`
 - EDK2/AAVMF UEFI 固件（从 Debian `qemu-efi-aarch64` 包解出）
-- ROS 2 Jazzy（guest 内 apt 安装）
+- ROS 2 Jazzy（guest 内 apt 安装；macOS 端用 RoboStack + pixi，见说明书 17.3）
