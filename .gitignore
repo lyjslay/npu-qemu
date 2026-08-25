@@ -1,0 +1,37 @@
+# 编译产物
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+*.order
+*.symvers
+*.cmd
+Module.symvers
+modules.order
+.tmp_versions/
+.ko.cmd
+
+# 二进制/可执行
+*.elf
+*.bin
+
+# ROS 构建产物
+build/
+install/
+log/
+
+# 大文件（镜像/固件/包，不进 git，自行获取）
+*.img
+*.qcow2
+*.fd
+*.iso
+*.deb
+*.tar.gz
+*.tar.xz
+
+# 日志
+*.log
+
+# macOS
+.DS_Store
